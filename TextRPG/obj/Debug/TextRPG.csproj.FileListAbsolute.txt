@@ -10,3 +10,15 @@ C:\Users\hyun\source\repos\TextRPG\TextRPG\bin\Debug\Figgle.xml
 C:\Users\hyun\source\repos\TextRPG\TextRPG\obj\Debug\TextRPG.csproj.Up2Date
 C:\Users\hyun\source\repos\TextRPG\TextRPG\bin\Debug\Newtonsoft.Json.dll
 C:\Users\hyun\source\repos\TextRPG\TextRPG\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\bin\Debug\TextRPG.exe.config
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\bin\Debug\TextRPG.exe
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\bin\Debug\TextRPG.pdb
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\bin\Debug\Figgle.dll
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\bin\Debug\Figgle.xml
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\obj\Debug\TextRPG.csproj.AssemblyReference.cache
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\obj\Debug\TextRPG.csproj.CoreCompileInputs.cache
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\obj\Debug\TextRPG.csproj.Up2Date
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\obj\Debug\TextRPG.exe
+C:\Users\hyun\Desktop\Git_test\textRPG\TextRPG\obj\Debug\TextRPG.pdb

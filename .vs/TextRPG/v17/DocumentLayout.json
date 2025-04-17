@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hyun\\source\\repos\\TextRPG\\",
+  "WorkspaceRootPath": "C:\\Users\\hyun\\Desktop\\Git_test\\textRPG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FDCC7E1C-E895-416F-8DA8-6852E4860F68}|TextRPG\\TextRPG.csproj|c:\\users\\hyun\\source\\repos\\textrpg\\textrpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FDCC7E1C-E895-416F-8DA8-6852E4860F68}|TextRPG\\TextRPG.csproj|c:\\users\\hyun\\desktop\\git_test\\textrpg\\textrpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FDCC7E1C-E895-416F-8DA8-6852E4860F68}|TextRPG\\TextRPG.csproj|solutionrelative:textrpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,18 +27,17 @@
               "ToolTip": "D:\\InventoryPage.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T08:24:06.431Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T08:24:06.431Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\hyun\\source\\repos\\TextRPG\\TextRPG\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\hyun\\Desktop\\Git_test\\textRPG\\TextRPG\\Program.cs",
               "RelativeDocumentMoniker": "TextRPG\\Program.cs",
-              "ToolTip": "C:\\Users\\hyun\\source\\repos\\TextRPG\\TextRPG\\Program.cs",
+              "ToolTip": "C:\\Users\\hyun\\Desktop\\Git_test\\textRPG\\TextRPG\\Program.cs",
               "RelativeToolTip": "TextRPG\\Program.cs",
-              "ViewState": "AgIAAPIEAAAAAAAAAAAhwAYFAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAPIEAAAAAAAAAAAhwP4EAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-14T11:29:23.473Z",
               "EditorCaption": ""
