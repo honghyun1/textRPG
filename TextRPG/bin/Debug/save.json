@@ -2,15 +2,15 @@
   "Player": {
     "Name": "마루쉐",
     "Job": "전사",
-    "HP": 160,
-    "maxHP": 160,
-    "Attack": 19,
-    "Defense": 14,
-    "Gold": 0,
-    "Level": 2,
-    "EXP": 55,
+    "HP": 190,
+    "maxHP": 190,
+    "Attack": 35,
+    "Defense": 19,
+    "Gold": 3371,
+    "Level": 5,
+    "EXP": 20,
     "CaveEvent": 1,
-    "CaveCheckPoint": 1,
+    "CaveCheckPoint": 2,
     "CaveBoss": 0
   },
   "Inventory": [
@@ -20,7 +20,9 @@
     "일반적인 검",
     "패링 대거",
     "아이언 아머",
-    "목제 방패"
+    "목제 방패",
+    "음울한 발톱",
+    "철 방패"
   ],
   "EquippedItems": [
     "검은 얼룩의 검",
@@ -29,12 +31,15 @@
     "일반적인 검",
     "패링 대거",
     "아이언 아머",
-    "목제 방패"
+    "목제 방패",
+    "음울한 발톱",
+    "철 방패"
   ],
   "PurchasedItems": [
     "일반적인 검",
     "패링 대거",
     "아이언 아머",
-    "목제 방패"
+    "목제 방패",
+    "철 방패"
   ]
 }

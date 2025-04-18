@@ -134,11 +134,12 @@ namespace TextRPG
         }
         static Dictionary<string, Monster> monsterData = new Dictionary<string, Monster>() // 몬스터 데이터 (몬스터 이름이 Dictionary에서 불러오는 키값)
         {
-            { "고블린", new Monster("고블린", 35, 5, 3, 75, 15) },
-            { "홉고블린", new Monster("홉고블린", 50, 7, 1, 90, 20) },
-            { "트롤", new Monster("트롤", 60, 5, 0, 150, 25) },
-            { "슬라임", new Monster("슬라임", 15, 4, 9, 75, 20) },
-            { "검은 짐승", new Monster("검은 짐승", 100, 50, 15, 3000, 100) }
+            { "고블린", new Monster("고블린", 35, 5, 3, 100, 15) },
+            { "홉고블린", new Monster("홉고블린", 50, 7, 1, 120, 20) },
+            { "트롤", new Monster("트롤", 60, 5, 0, 200, 25) },
+            { "슬라임", new Monster("슬라임", 15, 4, 9, 100, 20) },
+            { "황금 슬라임", new Monster("황금 슬라임", 10, 500, 0, 500, 10) },
+            { "검은 짐승", new Monster("검은 짐승", 1, 50, 15, 3500, 100) }
         };
 
         static void ShowText(string text, int delay = 0) // 대사 제어
@@ -846,8 +847,6 @@ namespace TextRPG
                 Console.ReadKey(true);
                 Mendacium();
             }
-            Console.Clear();
-            ShowText("*이름없는 동굴*\n");
             Dungeon1();
         }
         static void Dungeon1()
@@ -865,39 +864,61 @@ namespace TextRPG
 
             if (player.CaveCheckPoint == 2)
             {
-                ShowText("너는 워프 장치를 이용할 수 있다.\n", 1000);
-                ShowText("1. 19 구역으로 간다.\n2. 10 구역으로 간다.\n3. 1 구역으로 간다.");
-                DelKeyBuffer();
-                string select = Console.ReadLine();
-
-                switch (select)
+                while(true)
                 {
-                    case "1":
-                        floor = 19;
-                        break;
-                    case "2":
-                        floor = 10;
-                        break;
-                    case "3":
-                        floor = 1;
-                        break;
+                    Console.Clear();
+                    ShowText("*이름없는 동굴*\n");
+                    ShowText("너는 워프 장치를 이용할 수 있다.\n", 1000);
+                    ShowText("1. 19 구역으로 간다.\n2. 10 구역으로 간다.\n3. 1 구역으로 간다.");
+                    DelKeyBuffer();
+                    string select = Console.ReadLine();
+
+                    switch (select)
+                    {
+                        case "1":
+                            floor = 19;
+                            break;
+                        case "2":
+                            floor = 10;
+                            break;
+                        case "3":
+                            floor = 1;
+                            break;
+                        default:
+                            ShowText("너는 다시 생각했다.");
+                            DelKeyBuffer();
+                            Console.ReadKey(true);
+                            continue;
+                    }
+                    break;
                 }
             }
             else if (player.CaveCheckPoint == 1)
             {
-                ShowText("너는 워프 장치를 이용할 수 있다.\n", 1000);
-                ShowText("1. 10 구역으로 간다.\n2. 1 구역으로 간다.");
-                DelKeyBuffer();
-                string select = Console.ReadLine();
-
-                switch (select)
+                while (true)
                 {
-                    case "1":
-                        floor = 10;
-                        break;
-                    case "2":
-                        floor = 1;
-                        break;
+                    Console.Clear();
+                    ShowText("*이름없는 동굴*\n");
+                    ShowText("너는 워프 장치를 이용할 수 있다.\n", 1000);
+                    ShowText("1. 10 구역으로 간다.\n2. 1 구역으로 간다.");
+                    DelKeyBuffer();
+                    string select = Console.ReadLine();
+
+                    switch (select)
+                    {
+                        case "1":
+                            floor = 10;
+                            break;
+                        case "2":
+                            floor = 1;
+                            break;
+                        default:
+                            ShowText("너는 다시 생각했다.");
+                            DelKeyBuffer();
+                            Console.ReadKey(true);
+                            continue;
+                    }
+                    break;
                 }
             }
             while (true)
@@ -917,13 +938,13 @@ namespace TextRPG
                     case "1":
                         if (floor < 20)
                         {
-                            if (floor == 10)
+                            if (floor == 10 && player.CaveCheckPoint == 0)
                             {
                                 ShowText("너는 이상한 워프 장치를 발견했다.", 1000);
                                 ShowText("다음에는 이 구역에서부터 시작할 수 있을 것 같다.", 1000);
                                 player.CaveCheckPoint = 1;
                             }
-                            if (floor == 19)
+                            if (floor == 19 && player.CaveCheckPoint == 1)
                             {
                                 ShowText("너는 이상한 워프 장치를 발견했다.", 1000);
                                 ShowText("다음에는 이 구역에서부터 시작할 수 있을 것 같다.", 1000);
@@ -953,8 +974,8 @@ namespace TextRPG
                                 ShowText("무언가가 너를 향해 달려들었다.", 1000);
                                 DelKeyBuffer();
                                 Console.ReadKey(true);
-                                Battle(boss);
                                 PlayBGM("Asset/Boss1.wav");
+                                Battle(boss);
                             }
                             else
                             {
@@ -1003,7 +1024,7 @@ namespace TextRPG
             }
             else if (randEvent > 60 && randEvent <= 75)
             {
-                int gold = rand.Next(25, 51);
+                int gold = rand.Next(25, 251);
                 player.Gold += gold;
                 ShowText("\n너는 앞으로 걸어나간다.", 2000);
                 ShowText("......", 1000);
@@ -1031,18 +1052,6 @@ namespace TextRPG
 
             while (player.HP > 0 && monster.HP > 0) // 어느 한쪽의 HP가 0이 될 때까지 지속
             {
-                Console.Clear();
-                ShowText("*이름없는 동굴*\n");
-                ShowText($"{monster.MonName}은(는) 너에게 강한 적의를 품고있다.\n", 1000);
-                ShowText($"[{monster.MonName}] HP : {monster.HP} / {monster.maxHP}");
-                ShowText($"[{player.Name}] HP : {player.HP} / {player.maxHP}");
-                ShowText("\n너는 어떤 행동을 할 지 선택해야한다.");
-                ShowText("1. 공격한다.\n2. 방어한다\n3. 도망친다.\n", 1000);
-                DelKeyBuffer();
-                string playerChoice = Console.ReadLine();
-
-                string monsterChoice = GetMonsterAction();
-
                 int plDie1 = rand.Next(1, 7); // 1번 주사위  1 ~ 6
                 int plDie2 = rand.Next(1, 7); // 2번 주사위  1 ~ 6
                 int msDie1 = rand.Next(1, 7); // 1번 주사위  1 ~ 6
@@ -1054,19 +1063,41 @@ namespace TextRPG
                 bool plDouble = (plDie1 == plDie2) && rand.Next(1, 101) <= 30; // 주사위가 같으면 30% 확률로 크리티컬
                 bool msDouble = (msDie1 == msDie2) && rand.Next(1, 101) <= 30;
 
-                switch(playerChoice)
-                {
-                    case "1":
-                        playerChoice = "공격";
-                        break;
-                    case "2":
-                        playerChoice = "방어";
-                        break;
-                    case "3":
-                        playerChoice = "도주";
-                        break;
-                }
+                string playerChoice = "";
+                string monsterChoice = "";
 
+                while (true)
+                {
+                    Console.Clear();
+                    ShowText("*이름없는 동굴*\n");
+                    ShowText($"{monster.MonName}은(는) 너에게 강한 적의를 품고있다.\n", 1000);
+                    ShowText($"[{monster.MonName}] HP : {monster.HP} / {monster.maxHP}");
+                    ShowText($"[{player.Name}] HP : {player.HP} / {player.maxHP}");
+                    ShowText("\n너는 어떤 행동을 할 지 선택해야한다.");
+                    ShowText("1. 공격한다.\n2. 방어한다\n3. 도망친다.\n", 1000);
+                    DelKeyBuffer();
+                    playerChoice = Console.ReadLine();
+                    monsterChoice = GetMonsterAction();
+
+                    switch (playerChoice)
+                    {
+                        case "1":
+                            playerChoice = "공격";
+                            break;
+                        case "2":
+                            playerChoice = "방어";
+                            break;
+                        case "3":
+                            playerChoice = "도주";
+                            break;
+                        default:
+                            ShowText("너는 다시 생각했다.");
+                            DelKeyBuffer();
+                            Console.ReadKey(true);
+                            continue;
+                    }
+                    break;
+                }
                 Console.Clear();
                 ShowText("*이름없는 동굴*\n");
                 ShowText($"너는 {playerChoice}을(를) 취했다.", 1500);
@@ -1079,7 +1110,7 @@ namespace TextRPG
                 {
                     if (plSum > msSum)
                     {
-                        int damage = player.Attack + plSum - monster.Defense;
+                        int damage = Math.Max(0, player.Attack + plSum - monster.Defense);
                         if (isPlayerDoubleAttack || plDouble)
                         {
                             damage *= 2;
@@ -1090,7 +1121,7 @@ namespace TextRPG
                     }
                     else if (plSum < msSum)
                     {
-                        int damage = monster.Attack + msSum - player.Defense;
+                        int damage = Math.Max(0, monster.Attack + msSum - player.Defense);
                         if (isMonsterDoubleAttack || msDouble)
                         {
                             damage *= 2;
@@ -1136,7 +1167,7 @@ namespace TextRPG
                             damage *= 2;
                             ShowText($"{monster.MonName}은(는) 위협적인 공격을 준비한다.", 1000);
                         }
-                        monster.HP -= damage;
+                        player.HP -= damage;
                         ShowText($"너는 방어했지만 {damage}의 대미지를 입었다.", 1500);
                     }
                     else
@@ -1175,7 +1206,7 @@ namespace TextRPG
                         ShowText("너는 전투를 포기하려 했지만 발이 떨어지지 않았다.", 1500);
                         if (monsterChoice == "공격")
                         {
-                            int damage = monster.Attack + msSum - player.Defense;
+                            int damage = Math.Max(0, monster.Attack + msSum - player.Defense);
                             if (isMonsterDoubleAttack || msDouble)
                             {
                                 damage *= 2;
@@ -1210,12 +1241,16 @@ namespace TextRPG
             {
                 ShowText($"{monster.MonName}을(를) 처치했다.", 1500);
                 ShowText($"너는 {monster.GoldReward}G와 {monster.EXPReward} 만큼의 경험치를 얻었다.", 1000);
+                DelKeyBuffer();
+                Console.ReadKey(true);
                 player.Gold += monster.GoldReward;
                 EXPSystem(monster.EXPReward); // 경험치 계산
                 if (monster.MonName == "검은 짐승")
                 {
+                    Console.Clear();
                     ShowText($"너는 {monster.MonName}의 사체에서 무언가를 발견했다.", 1500);
                     inventory.Add("음울한 발톱");
+                    player.CaveBoss = 1;
                     ShowText("너는 전리품을 챙겨 마을로 돌아왔다.", 1000);
                     DelKeyBuffer();
                     Console.ReadKey(true);
